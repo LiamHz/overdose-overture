@@ -10,21 +10,23 @@ public class SpawnerController : MonoBehaviour {
     }
     
     void SpawnCube() {
-        int cubeIdx;
-        float xPos;
-        string cubeType;
+        // Should be set to multiple of BPS
+        const float zPos = 20f;
+        const float cubeHitZone = 0f;
+        const float travelTimeInBeats = 6f;
+        // TODO Pull 140f (bpm) from GameManager
+        const float beatsPerSecond = 60f / 140f;
+        // Set cube speed to multiple of BPM * distance needed from spawn to hit zone
+        const float cubeSpeed = (zPos - cubeHitZone) / (beatsPerSecond * travelTimeInBeats);
         
-        cubeType = Random.Range(0, 2) == 0 ? "blue" : "red";
+        var cubeType = Random.Range(0, 2) == 0 ? "blue" : "red";
 
         // Randomize spawn of left or right
-        xPos = Random.Range(0, 2) == 0 ? -1.2f : 1.2f;
-        cubeIdx = cubeType == "blue" ? 0 : 1;
+        var xPos = Random.Range(0, 2) == 0 ? -1.2f : 1.2f;
+        var cubeIdx = cubeType == "blue" ? 0 : 1;
         
         var cube = GameObject.Instantiate(cubes[cubeIdx]);
-        cube.transform.position = new Vector3(xPos, 1f, 16);
-    }
-
-    // Update is called once per frame
-    void Update() {
+        cube.transform.position = new Vector3(xPos, 1f, zPos);
+        cube.GetComponent<BeatSaberCubeController>().speed = cubeSpeed;
     }
 }
