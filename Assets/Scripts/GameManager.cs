@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour {
     public static event Action TickEvent;
     public AudioSource songSource;
     public AudioSource hitSource;
+    public AudioSource missSource;
     public static event Action IncreaseScoreEvent;
-    
+    public static event Action DecreaseScoreEvent;
     private static int score = 0;
     public static int Score => score;
 
@@ -33,15 +34,25 @@ public class GameManager : MonoBehaviour {
             60f / bpm
         );
         IncreaseScoreEvent += PlayHitSound;
+        DecreaseScoreEvent += PlayMissSound;
     }
     
     void PlayHitSound() {
         hitSource.Play();
     }
+    void PlayMissSound() {
+        missSource.Play();
+    }
     public static void IncreaseScore()
     {
         score++;
         IncreaseScoreEvent?.Invoke();
+    }
+    
+    public static void DecreaseScore()
+    {
+        score--;
+        DecreaseScoreEvent?.Invoke();
     }
 
     // Update is called once per frame

@@ -18,14 +18,15 @@ public class BeatSaberCubeController : MonoBehaviour
     {
             if (other.CompareTag("LightSaber"))
             {
-                Debug.Log("lightsaber color: " + other.gameObject.GetComponent<ObjectColor>().color);
-
                 if ((other.gameObject.GetComponent<ObjectColor>().color == color))
                 {
-                    Debug.Log("block color: " + color);
                     Instantiate(PrefabFactory.DeathParticles, this.transform.position, Quaternion.identity);
                     GameManager.IncreaseScore();
                     Destroy(this.gameObject);
+                }
+                else
+                {
+                    GameManager.DecreaseScore();
                 }
             }
     }
