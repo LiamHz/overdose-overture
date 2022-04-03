@@ -6,7 +6,7 @@ public class SpawnerController : MonoBehaviour {
     public GameObject[] cubes;
     // Start is called before the first frame update
     void Start() {
-        InvokeRepeating("SpawnCube", 2.0f, 0.5f);
+        GameManager.TickEvent += SpawnCube;
     }
     
     void SpawnCube() {
@@ -14,11 +14,7 @@ public class SpawnerController : MonoBehaviour {
         float xPos;
         string cubeType;
         
-        if (Random.Range(0, 2) == 0) {
-            cubeType = "blue";
-        } else {
-            cubeType = "red";
-        }
+        cubeType = Random.Range(0, 2) == 0 ? "blue" : "red";
         
         if (cubeType == "blue") {
             xPos = -1.2f;
