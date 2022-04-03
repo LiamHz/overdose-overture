@@ -15,14 +15,10 @@ public class SpawnerController : MonoBehaviour {
         string cubeType;
         
         cubeType = Random.Range(0, 2) == 0 ? "blue" : "red";
-        
-        if (cubeType == "blue") {
-            xPos = -1.2f;
-            cubeIdx = 0;
-        } else {
-            xPos = 1.2f;
-            cubeIdx = 1;
-        }
+
+        // Randomize spawn of left or right
+        xPos = Random.Range(0, 2) == 0 ? -1.2f : 1.2f;
+        cubeIdx = cubeType == "blue" ? 0 : 1;
         
         var cube = GameObject.Instantiate(cubes[cubeIdx]);
         cube.transform.position = new Vector3(xPos, 0, 16);
