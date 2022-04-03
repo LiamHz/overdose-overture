@@ -8,7 +8,8 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour {
     public float bpm = 20;
     public static event Action TickEvent;
-    public AudioSource audioSource;
+    public AudioSource songSource;
+    public AudioSource hitSource;
     public static event Action IncreaseScoreEvent;
     
     private static int score = 0;
@@ -25,14 +26,18 @@ public class GameManager : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        audioSource.Play();
+        songSource.Play();
         InvokeRepeating(
             "TriggerTickEvent",
             0f,
             60f / bpm
         );
+        IncreaseScoreEvent += PlayHitSound;
     }
-
+    
+    void PlayHitSound() {
+        hitSource.Play();
+    }
     public static void IncreaseScore()
     {
         score++;
