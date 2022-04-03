@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour {
     public float bpm = 20;
     public static event Action TickEvent;
     public AudioSource audioSource;
+    public static event Action IncreaseScoreEvent;
+    
+    private static int score = 0;
+    public static int Score => score;
 
     void TriggerTickEvent() {
         TickEvent?.Invoke();
@@ -27,6 +31,12 @@ public class GameManager : MonoBehaviour {
             0f,
             60f / bpm
         );
+    }
+
+    public static void IncreaseScore()
+    {
+        score++;
+        IncreaseScoreEvent?.Invoke();
     }
 
     // Update is called once per frame

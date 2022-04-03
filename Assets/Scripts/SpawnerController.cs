@@ -28,5 +28,6 @@ public class SpawnerController : MonoBehaviour {
         var cube = GameObject.Instantiate(cubes[cubeIdx]);
         cube.transform.position = new Vector3(xPos, 1f, zPos);
         cube.GetComponent<BeatSaberCubeController>().speed = cubeSpeed;
+        cube.GetComponent<BeatSaberCubeController>().color = cubeType;
     }
 }
