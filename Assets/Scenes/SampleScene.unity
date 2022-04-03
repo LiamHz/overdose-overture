@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13630304, g: 0.13304764, b: 0.13535887, a: 1}
+  m_IndirectSpecularColor: {r: 0.13630313, g: 0.13304767, b: 0.13535894, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -972,7 +972,7 @@ MonoBehaviour:
   bpm: 140
   songSource: {fileID: 1601831590}
   hitSource: {fileID: 612677168}
-  missSource: {fileID: 0}
+  missSource: {fileID: 168850266}
 --- !u!4 &1236096111
 Transform:
   m_ObjectHideFlags: 0
