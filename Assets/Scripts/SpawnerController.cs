@@ -29,7 +29,7 @@ public class SpawnerController : MonoBehaviour {
         }
         
         var cube = GameObject.Instantiate(cubes[cubeIdx]);
-        cube.transform.position = new Vector3(xPos, 0, 16);
+        cube.transform.position = new Vector3(xPos, 1f, 16);
     }
 
     // Update is called once per frame
