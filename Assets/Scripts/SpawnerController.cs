@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class SpawnerController : MonoBehaviour {
     public GameObject[] cubes;
+    public GameObject[] spheres;
+    public GameObject[] targets;
+
     // Start is called before the first frame update
     void Start() {
         GameManager.TickEvent += SpawnCube;
+        GameManager.TickEvent += SpawnTarget;
     }
     
     void SpawnCube() {
@@ -29,5 +33,23 @@ public class SpawnerController : MonoBehaviour {
         cube.transform.position = new Vector3(xPos, 1f, zPos);
         cube.GetComponent<BeatSaberCubeController>().speed = cubeSpeed;
         cube.GetComponent<BeatSaberCubeController>().color = cubeType;
+    }
+
+    void SpawnTarget()
+    {
+        if (Random.Range(0f, 1f) > 0.5f)
+        {
+            const float zPos = 10f;
+            float xPos = Random.Range(-5f, 5f);
+            float yPos = Random.Range(1f, 4f);
+        
+            var targetType = Random.Range(0, 2) == 0 ? "blue" : "red";
+            var targetIdx = targetType == "blue" ? 0 : 1;
+
+            var target = GameObject.Instantiate(targets[targetIdx]);
+            target.transform.position = new Vector3(xPos, yPos, zPos);
+            target.GetComponent<TargetController>().color = targetType;
+
+        }
     }
 }

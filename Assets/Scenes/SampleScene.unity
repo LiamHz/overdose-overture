@@ -153,7 +153,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 202563e80084142658189dfdfa1ca00f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -969,7 +969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266291fe100d4445fa3b3fc7ade90b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 140
+  bpm: 70
   songSource: {fileID: 1601831590}
   hitSource: {fileID: 612677168}
   missSource: {fileID: 168850266}
@@ -2325,6 +2325,10 @@ MonoBehaviour:
   cubes:
   - {fileID: 8875886909024111931, guid: adaf51440b98d457d861159ed21192d8, type: 3}
   - {fileID: 8875886909024111931, guid: 856d9fb8ef5a044febda8181b6636915, type: 3}
+  spheres: []
+  targets:
+  - {fileID: 8029610573820620014, guid: 0ac0babf1bb376345a70c4dd8e3f234e, type: 3}
+  - {fileID: 8029610573820620014, guid: 138badee2546c7d4cb16595d286cc766, type: 3}
 --- !u!4 &1792457980
 Transform:
   m_ObjectHideFlags: 0
